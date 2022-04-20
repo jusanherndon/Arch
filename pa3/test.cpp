@@ -11,6 +11,7 @@ int breakCondition = 0;
 int device[devices];
 
 // Linear Backoff
+
 while(1){
 	int windowSize[counter + 1]; 
 	int check = counter + 1;
@@ -29,25 +30,28 @@ while(1){
 
 		for(int b = 0; b < check; b++){
 			if(device[i] == windowSize[b]){
-        			device[i] = -1;
-			}
+       				device[i] = -1;
+				windowSize[b] = -1;
+			}	
 		}
-	}
 
-	for(int c= 0; c < devices; c++){
-		if(device[c]==-1){
+		if(device[i]==-1){
 			breakCondition += 1;		
+
+			std::cout << "Break Condition" << breakCondition << std::endl;
 		}
+		if(breakCondition == devices){
+			break;
+		}	
 	}
 	
 	if(breakCondition == devices){
 		break;
-	}
+	}			
 	
 	breakCondition = 0;		
 	counter += 1;
-}
-
+}	
 
 // Binary Exponential Backoff
 
