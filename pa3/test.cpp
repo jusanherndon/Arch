@@ -9,6 +9,9 @@ int main(int argc, char *argv[]){
 
 int devices = std::atoi(argv[1]); 
 int logs = 0;
+int count = 0;
+int check1 = 0;
+int check2 = 0;
 int counter = 1;
 int counter1 = 1;
 int counter2 = 1;
@@ -60,13 +63,14 @@ while(1){
 	
 	breakCondition = 0;		
 	counter += 1;
+	count += check;
 }	
-std::cout << "This is the amount of Windows required for Linear Backoff: " << counter << std::endl;
+std::cout << "This is the amount of Windows required for Linear Backoff: " << count << std::endl;
 
 // Binary Exponential Backoff
 while(1){
 	int windowSize1[int(exp2(counter1))];
-	int check1 = int(exp2(counter1));
+	check1 = int(exp2(counter1));
 
 	for(int a = 0; a < check1; a++){
 		windowSize1[a] = a;
@@ -105,7 +109,7 @@ while(1){
 	breakCondition1 = 0;		
 	counter1 += 1;
 }	
-std::cout << "This is the amount of Windows required for Binary Exponential Backoff: " << counter1 << std::endl;
+std::cout << "This is the amount of Windows required for Binary Exponential Backoff: " << check1 << std::endl;
 
 
 // LogLog Backoff
@@ -114,7 +118,7 @@ while(1){
 
 	int windowSize2[counter2*logs]; 
 
-	int check2 = counter2*logs;
+	check2 = counter2*logs;
 
 	for(int a = 0; a < check2; a++){
 		windowSize2[a] = a;
@@ -153,7 +157,7 @@ while(1){
 	breakCondition2 = 0;		
 	counter2 += 1;
 }	
-std::cout << "This is the amount of Windows required for Log Log Backoff: " << counter2 << std::endl;
+std::cout << "This is the amount of Windows required for Log Log Backoff: " << check2 << std::endl;
 
 
 return 0;
