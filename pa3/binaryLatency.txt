@@ -1,0 +1,2 @@
+Every number is the average over 10 trials for Binary Backoff
+

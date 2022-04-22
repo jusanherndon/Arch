@@ -1,0 +1,1 @@
+Every number is the average over 10 trials for Log Log Backoff
