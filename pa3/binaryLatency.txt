@@ -1,2 +1,12 @@
 Every number is the average over 10 trials for Binary Backoff
 
+14
+21
+24
+29
+32
+36
+38
+41
+43
+45
